@@ -67,11 +67,11 @@ func updateMovie(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 	for index, item := range movies {
 		if item.ID == params["id"] {
-			movies[index] = Movie{} // Clear the existing movie
+			movies[index] = Movie{} 
 			var movie Movie
 			_ = json.NewDecoder(r.Body).Decode(&movie)
 			movie.ID = params["id"]
-			movies[index] = movie // Replace with the updated movie
+			movies[index] = movie 
 			json.NewEncoder(w).Encode(movie)
 			return
 		}
