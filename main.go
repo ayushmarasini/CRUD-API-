@@ -14,12 +14,12 @@ import (
 type Movie struct {
 	ID       string    `json:"id"`
 	Isbn     string    `json:"isbn"`
-	Title    string    `json:"title"` // Corrected visibility to uppercase
+	Title    string    `json:"title"` 
 	Director *Director `json:"director"`
 }
 
 type Director struct {
-	Firstname string `json:"firstname"` // Corrected visibility to uppercase
+	Firstname string `json:"firstname"` 
 	Lastname  string `json:"lastname"`
 }
 
@@ -86,7 +86,7 @@ func main() {
 
 	r.HandleFunc("/movies", getMovies).Methods("GET")
 	r.HandleFunc("/movies/{id}", getMovie).Methods("GET")
-	r.HandleFunc("/movies", createMovie).Methods("POST") // Corrected route path
+	r.HandleFunc("/movies", createMovie).Methods("POST") 
 	r.HandleFunc("/movies/{id}", updateMovie).Methods("PUT")
 	r.HandleFunc("/movies/{id}", deleteMovie).Methods("DELETE")
 
